@@ -85,9 +85,9 @@ Posts cover the parts that were hard, surprising, or that I got wrong the first 
   # giscus app and enabling Discussions. Comments render only when both are set.
   [params.giscus]
     repo = "rasonyang/rasonyang.github.io"
-    repoId = ""
+    repoId = "R_kgDOL6eLPQ"
     category = "Comments"
-    categoryId = ""
+    categoryId = "DIC_kwDOL6eLPc4DGsvc"
 
   # Cookie-free analytics. Set to your GoatCounter code (e.g. "rasonyang") to enable.
   [params.analytics.goatcounter]
