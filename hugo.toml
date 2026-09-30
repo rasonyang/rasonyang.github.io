@@ -91,7 +91,7 @@ Posts cover the parts that were hard, surprising, or that I got wrong the first 
 
   # Cookie-free analytics. Set to your GoatCounter code (e.g. "rasonyang") to enable.
   [params.analytics.goatcounter]
-    code = ""
+    code = "rasonyang"
 
 [menu]
   [[menu.main]]
