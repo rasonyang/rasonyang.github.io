@@ -1,0 +1,6 @@
+{{- /* Cookie-free analytics; enabled only in production builds with a code set. */ -}}
+{{- with site.Params.analytics.goatcounter.code }}
+{{- if hugo.IsProduction }}
+<script data-goatcounter="https://{{ . }}.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+{{- end }}
+{{- end }}
