@@ -2,7 +2,6 @@
 title: "An AI-Native Call Center in Four Open-Source Projects"
 slug: "ai-native-call-center-in-four-projects"
 date: 2026-10-12T10:54:49+08:00
-draft: true
 description: "Where a call center hurts, which boundary of the call path each pain lives on, and the four open-source projects that each own one boundary."
 projects: [aicc, freesbc, cascade-realtime-gateway, web-sip-phone]
 tags: [architecture, sip, freeswitch, webrtc, realtime]
