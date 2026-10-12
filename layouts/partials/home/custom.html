@@ -1,8 +1,0 @@
-{{- /* Blowfish only (legacy partials/ dir, see comments.html): home layout "custom" (config/blowfish/params.toml). Renders params.homeInfoParams. */ -}}
-{{- with site.Params.homeInfoParams }}
-<article class="flex flex-col items-center justify-center text-center pt-8 pb-4">
-  <h1 class="text-4xl font-extrabold">{{ .Title }}</h1>
-  <div class="mt-1 text-2xl">{{ partialCached "author-links.html" $ }}</div>
-  <section class="prose dark:prose-invert w-full mt-4 text-left">{{ .Content | markdownify }}</section>
-</article>
-{{- end }}

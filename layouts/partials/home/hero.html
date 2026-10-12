@@ -1,0 +1,27 @@
+{{- /* Blowfish only (legacy partials/ dir, see comments.html). Overrides the theme's home/hero.html:
+       same idea, but the text is taken from params.homeInfoParams (the site has no
+       content/_index.md), left-aligned over a darkening gradient so it stays readable in both modes. */ -}}
+{{ $img := resources.Get (site.Params.homepage.homepageImage | default "img/hero.jpg") }}
+<article class="max-w-full prose dark:prose-invert">
+  <div class="mx-auto max-w-7xl p-0">
+    <div class="relative shadow-xl sm:overflow-hidden rounded-2xl" style="background:#081230">
+      {{ with $img }}
+      <div class="absolute inset-0">
+        <img class="h-full w-full object-cover nozoom mt-0 mr-0 mb-0 ml-0" src="{{ .RelPermalink }}" alt="" loading="eager" fetchpriority="high">
+        <div class="absolute inset-0" style="background:linear-gradient(90deg,rgba(8,18,48,.92) 0%,rgba(8,18,48,.72) 45%,rgba(8,18,48,.10) 100%)"></div>
+      </div>
+      {{ end }}
+      <div class="relative flex flex-col items-start text-left" style="padding:clamp(2rem,6vw,5rem) clamp(1.5rem,5vw,4rem)">
+        <h1 class="mb-2 text-4xl sm:text-5xl font-extrabold" style="color:#fff;margin-top:0">{{ site.Params.Author.name | default site.Title }}</h1>
+        {{ with site.Params.Author.headline }}
+          <h2 class="mt-0 mb-0 text-xl" style="color:#bfdbfe">{{ . | markdownify }}</h2>
+        {{ end }}
+        <div class="mt-3 mb-6 text-2xl" style="color:#bfdbfe">{{ partial "author-links.html" . }}</div>
+        {{ with site.Params.homeInfoParams }}
+          <section class="hero-intro max-w-2xl" style="color:#e5eefc">{{ .Content | markdownify }}</section>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+<style>.hero-intro p,.hero-intro strong{color:#e5eefc}.hero-intro p{margin:.6rem 0}</style>
+</article>

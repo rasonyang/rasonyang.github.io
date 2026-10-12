@@ -1,0 +1,58 @@
+# Blowfish theme options. Keys: https://blowfish.page/docs/configuration/
+colorScheme = "ocean"
+defaultAppearance = "light"
+autoSwitchAppearance = true   # follow prefers-color-scheme
+enableSearch = true           # uses the JSON home output already enabled
+enableCodeCopy = true
+mainSections = ["posts"]
+
+[header]
+  layout = "fixed"
+
+[footer]
+  showMenu = false
+  showCopyright = true
+  showThemeAttribution = true
+  showAppearanceSwitcher = true
+  showScrollToTop = true
+
+[homepage]
+  # "hero" is overridden by layouts/partials/home/hero.html so the intro text
+  # comes from params.homeInfoParams; the image is assets/img/hero.jpg.
+  layout = "hero"
+  homepageImage = "img/hero.jpg"
+  disableHeroImageFilter = true
+  showRecent = true
+  showRecentItems = 10
+  showMoreLink = true
+  showMoreLinkDest = "/posts/"
+  cardView = true
+
+[article]
+  showDate = true
+  showAuthor = false
+  showHero = true
+  heroStyle = "background"
+  showReadingTime = true
+  showWordCount = false
+  showTableOfContents = true
+  showHeadingAnchors = true
+  showPagination = true
+  showTaxonomies = true
+  showTags = true
+  showEdit = true
+  editURL = "https://github.com/rasonyang/rasonyang.github.io/blob/main/content/"
+  editAppendPath = true
+  showComments = true      # renders the root giscus partial (comments.html)
+
+[list]
+  groupByYear = false
+  showSummary = true
+  showTableOfContents = false
+
+[taxonomy]
+  showTermCount = true
+
+[term]
+  showTableOfContents = false
+  groupByYear = false

@@ -17,18 +17,22 @@ mainSections = ["posts"]
   showScrollToTop = true
 
 [homepage]
-  # "custom" renders layouts/_partials/home/custom.html (intro text from
-  # params.homeInfoParams), then the recent-articles list below it.
-  layout = "custom"
+  # "hero" is overridden by layouts/partials/home/hero.html so the intro text
+  # comes from params.homeInfoParams; the image is assets/img/hero.jpg.
+  layout = "hero"
+  homepageImage = "img/hero.jpg"
+  disableHeroImageFilter = true
   showRecent = true
   showRecentItems = 10
   showMoreLink = true
   showMoreLinkDest = "/posts/"
-  cardView = false
+  cardView = true
 
 [article]
   showDate = true
   showAuthor = false
+  showHero = true
+  heroStyle = "big"   # variant: config/blowfish-bg/ uses "background"
   showReadingTime = true
   showWordCount = false
   showTableOfContents = true

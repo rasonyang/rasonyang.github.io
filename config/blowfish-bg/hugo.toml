@@ -1,0 +1,23 @@
+# Blowfish evaluation overlay: `hugo -e blowfish-bg` (full copy of config/blowfish with heroStyle = "background").
+# Merged on top of the root hugo.toml (taxonomies, permalinks, outputs and
+# content settings are inherited unchanged).
+theme = "blowfish"
+
+# Blowfish needs raw HTML in markdown for some shortcodes; posts do not use it,
+# so keep the site's stricter setting from the root hugo.toml.
+
+[markup.goldmark.renderer]
+  unsafe = false
+
+[markup.tableOfContents]
+  startLevel = 2
+  endLevel = 4
+
+[markup.goldmark.parser]
+  wrapStandAloneImageWithinParagraph = false
+
+[markup.goldmark.parser.attribute]
+  block = true
+
+[markup.highlight]
+  noClasses = false
