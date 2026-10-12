@@ -1,0 +1,86 @@
+# Blowfish theme options. Keys: https://blowfish.page/docs/configuration/
+description = "Engineering notes on open-source voice AI infrastructure: SIP, FreeSWITCH, realtime voice models, and AI-native call centers."
+colorScheme = "ocean"
+defaultAppearance = "light"
+autoSwitchAppearance = true
+enableSearch = true           # uses the JSON home output
+enableCodeCopy = true
+mainSections = ["posts"]
+# Posts without their own feature image get this one (card, og:image, twitter:image).
+defaultFeaturedImage = "img/default-feature.jpg"
+defaultSocialImage = "img/default-feature.jpg"
+
+# Read by layouts/partials/home/hero.html
+homeIntro = """
+**Web SIP Phone / PSTN → FreeSBC → FreeSWITCH + AICC → realtime model, or Cascade Realtime Gateway → ASR → LLM → TTS**
+
+Posts cover the parts that were hard, surprising, or that I got wrong the first time.
+"""
+
+[author]
+  name = "Rason Yang"
+  headline = "Engineering notes on open-source voice AI infrastructure"
+  links = [
+    { github = "https://github.com/rasonyang" },
+    { rss = "/index.xml" },
+  ]
+
+[header]
+  layout = "fixed"
+
+[footer]
+  showMenu = false
+  showCopyright = true
+  showThemeAttribution = true
+  showAppearanceSwitcher = true
+  showScrollToTop = true
+
+[homepage]
+  layout = "hero"
+  homepageImage = "img/hero.jpg"
+  disableHeroImageFilter = true
+  showRecent = true
+  showRecentItems = 10
+  showMoreLink = true
+  showMoreLinkDest = "/posts/"
+  cardView = true
+
+[article]
+  showDate = true
+  showAuthor = false
+  showHero = true
+  heroStyle = "big"
+  showReadingTime = true
+  showWordCount = false
+  showTableOfContents = true
+  showHeadingAnchors = true
+  showPagination = true
+  showTaxonomies = true
+  showTags = true
+  showEdit = true
+  editURL = "https://github.com/rasonyang/rasonyang.github.io/blob/main/content/"
+  editAppendPath = true
+  showComments = true
+
+[list]
+  groupByYear = false
+  showSummary = true
+  showTableOfContents = false
+
+[taxonomy]
+  showTermCount = true
+
+[term]
+  showTableOfContents = false
+  groupByYear = false
+
+# Comments via giscus (GitHub Discussions on this repo); see layouts/partials/comments.html.
+[giscus]
+  repo = "rasonyang/rasonyang.github.io"
+  repoId = "R_kgDOL6eLPQ"
+  category = "Comments"
+  categoryId = "DIC_kwDOL6eLPc4DGsvc"
+
+# Cookie-free analytics; see layouts/partials/extend-head.html.
+[analytics.goatcounter]
+  code = "rasonyang"

@@ -1,0 +1,43 @@
+baseURL = "https://rasonyang.dev/"
+locale = "en-US"
+title = "Rason Yang"
+theme = "blowfish"
+enableRobotsTXT = true
+enableGitInfo = true
+
+[pagination]
+  pagerSize = 10
+
+# Topic tags (sip, freeswitch, realtime, ...) plus one term per open-source
+# project. A project term page lives at /projects/<slug>/ and its intro text
+# comes from content/projects/<slug>/_index.md. Each term has its own RSS feed.
+[taxonomies]
+  tag = "tags"
+  project = "projects"
+
+[permalinks.page]
+  # Slugs are permanent once published. No dates in URLs.
+  posts = "/posts/:slug/"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML"]
+  term = ["HTML", "RSS"]
+
+[services.rss]
+  limit = 20
+
+[minify]
+  minifyOutput = true
+
+[markup.goldmark.renderer]
+  unsafe = false
+
+[markup.highlight]
+  noClasses = false
+  style = "github"
+
+[markup.tableOfContents]
+  startLevel = 2
+  endLevel = 4

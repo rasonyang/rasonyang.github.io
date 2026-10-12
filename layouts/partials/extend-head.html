@@ -1,4 +1,4 @@
-{{- /* Cookie-free analytics; enabled only in production builds with a code set. */ -}}
+{{- /* Blowfish hook (partials/extend-head.html; must live in the legacy partials/ dir because Blowfish probes it with templates.Exists): GoatCounter, production builds only. */ -}}
 {{- with site.Params.analytics.goatcounter.code }}
 {{- if hugo.IsProduction }}
 <script data-goatcounter="https://{{ . }}.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
