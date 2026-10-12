@@ -24,7 +24,7 @@ One post per pull request. Remove `draft: true` and merge to publish.
 - `projects:` in front matter puts the post on a project page
   (`/projects/<slug>/`, with its own RSS feed). Values: `aicc`, `freesbc`,
   `cascade-realtime-gateway`, `web-sip-phone`.
-- Optional `feature.jpg` (1200x630) in the post's bundle becomes its card and
+- Optional `featured.jpg` (1200x630) in the post's bundle becomes its card and
   social image; without it the site default `assets/img/default-feature.jpg`
   is used.
 - New tag? Add `content/tags/<tag>/_index.md` with the display `title`
