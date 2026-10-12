@@ -62,7 +62,7 @@ enableGitInfo = true
     Content = """
 Engineering notes from building an open-source, AI-native call center stack:
 
-**Web SIP Phone / PSTN → FreeSBC → FreeSWITCH + AICC → Cascade Realtime Gateway → realtime model or ASR → LLM → TTS**
+**Web SIP Phone / PSTN → FreeSBC → FreeSWITCH + AICC → realtime model, or Cascade Realtime Gateway → ASR → LLM → TTS**
 
 Posts cover the parts that were hard, surprising, or that I got wrong the first time.
 """
