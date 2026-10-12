@@ -1,0 +1,5 @@
+{{- /* Entry point for the comments hook. PaperMod and Blowfish both call
+       partial "comments.html"; Blowfish also probes for it with
+       templates.Exists "partials/comments.html", which only sees this legacy
+       directory name. The implementation lives in _partials/giscus.html. */ -}}
+{{- partial "giscus.html" . -}}

@@ -1,0 +1,65 @@
+# Hextra theme options. Keys: https://imfing.github.io/hextra/docs/guide/configuration/
+[navbar]
+  displayTitle = true
+  displayLogo = false
+  width = "normal"
+
+[theme]
+  default = "system"     # follow prefers-color-scheme
+  displayToggle = true
+
+[footer]
+  enable = true
+  displayCopyright = false   # copyright text comes from theme i18n only
+  displayPoweredBy = true
+  width = "normal"
+
+[page]
+  width = "normal"
+  [page.contextMenu]
+    enable = false
+
+[blog]
+  [blog.list]
+    displayTags = true
+    sortBy = "date"
+    sortOrder = "desc"
+    pagerSize = 10
+  [blog.article]
+    displayPagination = true
+
+[toc]
+  displayTags = true
+
+[highlight.copy]
+  enable = true
+  display = "always"
+
+[search]
+  enable = true
+  type = "flexsearch"
+
+[editURL]
+  enable = false
+  base = "https://github.com/rasonyang/rasonyang.github.io/edit/main/content"
+
+[imageZoom]
+  enable = true
+
+[comments]
+  enable = true
+  type = "giscus"
+  [comments.giscus]
+    repo = "rasonyang/rasonyang.github.io"
+    repoId = "R_kgDOL6eLPQ"
+    category = "Comments"
+    categoryId = "DIC_kwDOL6eLPc4DGsvc"
+    mapping = "pathname"
+    strict = 1
+    reactionsEnabled = 1
+    inputPosition = "bottom"
+    theme = ""
+
+# Hextra reads params.author as a map; the root hugo.toml (PaperMod) uses a string.
+[author]
+  name = "Rason Yang"

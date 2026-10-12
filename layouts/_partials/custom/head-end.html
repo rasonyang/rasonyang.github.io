@@ -1,0 +1,6 @@
+{{- /* Hextra hook (custom/head-end.html): GoatCounter, production builds only. */ -}}
+{{- with site.Params.analytics.goatcounter.code }}
+{{- if hugo.IsProduction }}
+<script data-goatcounter="https://{{ . }}.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+{{- end }}
+{{- end }}

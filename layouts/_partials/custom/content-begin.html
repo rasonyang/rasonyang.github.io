@@ -1,0 +1,6 @@
+{{- /* Hextra hook: intro text on the home page from params.homeInfoParams (no content/_index.md exists). */ -}}
+{{- if .IsHome }}
+{{- with site.Params.homeInfoParams }}
+<div class="hx:max-w-3xl hx:mx-auto hx:pt-8 hx:mb-12">{{ .Content | markdownify }}</div>
+{{- end }}
+{{- end }}

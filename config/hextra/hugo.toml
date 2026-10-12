@@ -1,0 +1,17 @@
+# Hextra evaluation overlay: `hugo -e hextra`.
+# Merged on top of the root hugo.toml (taxonomies, permalinks, outputs and
+# content settings are inherited unchanged).
+theme = "hextra"
+enableInlineShortcodes = true
+
+# Hextra's blog layouts are selected by `type: blog`. Posts live in
+# content/posts, so cascade the type from config instead of editing content.
+# The URL stays /posts/:slug/ because permalinks are keyed by section.
+[[cascade]]
+  type = "blog"
+  [cascade.target]
+    path = "{/posts,/posts/**}"
+
+# Hextra downloads FlexSearch and medium-zoom at build time (resources.GetRemote).
+[security.http]
+  urls = ['^https://cdn\.jsdelivr\.net/']
