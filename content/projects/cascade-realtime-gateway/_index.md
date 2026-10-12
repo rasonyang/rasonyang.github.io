@@ -1,10 +1,10 @@
 ---
 title: "Cascade Realtime Gateway"
-description: "One realtime voice API outside; end-to-end models or ASR → LLM → TTS pipelines inside."
+description: "The OpenAI Realtime protocol outside; an ASR → LLM → TTS pipeline inside."
 ---
 
-Unified realtime voice AI gateway. It exposes a realtime model interface
-externally and runs either end-to-end realtime models or ASR → LLM → TTS
-pipelines internally.
+Self-hosted realtime voice gateway. It speaks the OpenAI Realtime (GA)
+WebSocket protocol to clients and runs a cascaded ASR → LLM → TTS pipeline
+behind it, with providers swapped at runtime.
 
 Repository: [rasonyang/cascade-realtime-gateway](https://github.com/rasonyang/cascade-realtime-gateway)
