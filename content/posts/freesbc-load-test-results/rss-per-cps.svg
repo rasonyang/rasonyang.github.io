@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-labelledby="title desc">
+  <title id="title">Memory and goroutines per sustained call per second, before and after the #170 fixes</title>
+  <desc id="desc">Two bar pairs. RSS per sustained CPS: about 2.3 MB before (single host, Docker on Colima, sipgo v1.4.3) and about 1.25 MB after (three hosts, sipgo v1.6.0 plus PR 232), measured 1.22 to 1.31 MB from 1000 to 3500 CPS. Goroutines per sustained CPS: about 76 before and about 44 after, measured 43.7 to 46.5. Carrier-in, 2 second calls. The two rigs differ, and both predate the drainAcks bound of PR 243.</desc>
+  <defs>
+    <style>
+      .bg { fill: #ffffff; }
+      .ours { fill: #ddf4ff; stroke: #0969da; stroke-width: 1.5; }
+      .other { fill: #f6f8fa; stroke: #8c959f; stroke-width: 1.2; }
+      .axis { stroke: #8c959f; stroke-width: 1.2; }
+      .range { stroke: #0969da; stroke-width: 2; }
+      .h { font-size: 15px; font-weight: 600; fill: #1f2328; }
+      .v { font-size: 14px; font-weight: 600; fill: #1f2328; }
+      .s { font-size: 12px; fill: #424a53; }
+      .l { font-size: 11.5px; fill: #57606a; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1000" height="420" rx="12"/>
+
+  <!-- Panel 1: RSS MB per CPS. x = 280 + MB * 248 -->
+  <text class="h" x="20" y="36">RSS per sustained call per second</text>
+  <line class="axis" x1="280" y1="50" x2="280" y2="168"/>
+
+  <text class="h" x="20" y="72">before</text>
+  <text class="l" x="20" y="88">single host, sipgo v1.4.3</text>
+  <rect class="other" x="280" y="58" width="570" height="28" rx="4"/>
+  <text class="v" x="862" y="77">2.3 MB</text>
+
+  <text class="h" x="20" y="130">after</text>
+  <text class="l" x="20" y="146">three hosts, sipgo v1.6.0 + PR #232</text>
+  <rect class="ours" x="280" y="116" width="310" height="28" rx="4"/>
+  <line class="range" x1="583" y1="130" x2="605" y2="130"/>
+  <line class="range" x1="583" y1="123" x2="583" y2="137"/>
+  <line class="range" x1="605" y1="123" x2="605" y2="137"/>
+  <text class="v" x="617" y="135">1.25 MB</text>
+  <text class="l" x="700" y="135">range 1.22 to 1.31 across 1000 to 3500 CPS</text>
+
+  <!-- Panel 2: goroutines per CPS. x = 280 + n * 7.75 -->
+  <text class="h" x="20" y="212">Goroutines per sustained call per second</text>
+  <line class="axis" x1="280" y1="226" x2="280" y2="344"/>
+
+  <text class="h" x="20" y="248">before</text>
+  <text class="l" x="20" y="264">single host, sipgo v1.4.3</text>
+  <rect class="other" x="280" y="234" width="589" height="28" rx="4"/>
+  <text class="v" x="881" y="253">76</text>
+
+  <text class="h" x="20" y="306">after</text>
+  <text class="l" x="20" y="322">three hosts, sipgo v1.6.0 + PR #232</text>
+  <rect class="ours" x="280" y="292" width="341" height="28" rx="4"/>
+  <line class="range" x1="619" y1="306" x2="640" y2="306"/>
+  <line class="range" x1="619" y1="299" x2="619" y2="313"/>
+  <line class="range" x1="640" y1="299" x2="640" y2="313"/>
+  <text class="v" x="652" y="311">44</text>
+  <text class="l" x="700" y="311">range 43.7 to 46.5 across 1000 to 3500 CPS</text>
+
+  <!-- Notes -->
+  <text class="s" x="20" y="372">Carrier-in, 2 s calls. Before: Docker on Colima on one laptop. After: three cloud VMs. The rigs differ; this is not a controlled A/B.</text>
+  <text class="s" x="20" y="394">Both sets predate the drainAcks bound (PR #243), which the next three-host run will measure.</text>
+</svg>

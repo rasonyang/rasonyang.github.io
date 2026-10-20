@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 430" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-labelledby="title desc">
+  <title id="title">Call setups per second on 4 vCPU, per direction</title>
+  <desc id="desc">Horizontal bars of the highest passing call setup rate on 4 vCPU, UDP, no media, 2 second calls. Carrier to switch: 3500 CPS loss-free, CPU 190 of 400 at the knee; kernel receive-buffer drops start at 3750 CPS and the first failing step is 5000 CPS at 0.101 percent failed. Switch to carrier: 3250 CPS, CPU 192 of 400; 3500 CPS failed 0.204 percent on carrier-leg timeouts. Client to switch: at least 2250 CPS, a lower bound, CPU 132 of 400; 2500 CPS failed 0.248 percent, all rejected with 503 early_cap from the 64 unanswered INVITEs allowed per source IP, with one generator IP.</desc>
+  <defs>
+    <style>
+      .bg { fill: #ffffff; }
+      .ours { fill: #ddf4ff; stroke: #0969da; stroke-width: 1.5; }
+      .bound { fill: #ddf4ff; stroke: #0969da; stroke-width: 1.5; stroke-dasharray: 5 4; }
+      .grid { stroke: #d0d7de; stroke-width: 1; }
+      .axis { stroke: #8c959f; stroke-width: 1.2; }
+      .fail { fill: #ffffff; stroke: #57606a; stroke-width: 2; }
+      .h { font-size: 15px; font-weight: 600; fill: #1f2328; }
+      .v { font-size: 14px; font-weight: 600; fill: #1f2328; }
+      .s { font-size: 12px; fill: #424a53; }
+      .l { font-size: 11.5px; fill: #57606a; }
+      .ann { paint-order: stroke; stroke: #ffffff; stroke-width: 4px; stroke-linejoin: round; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1000" height="430" rx="12"/>
+
+  <text class="h" x="20" y="34">Highest passing call setup rate on 4 vCPU</text>
+  <text class="s" x="20" y="54">UDP signaling, no media, 2 s calls, 40 s steps. 0 to 5000 calls per second.</text>
+
+  <!-- Grid: x = 230 + CPS * 0.14 -->
+  <line class="grid" x1="370" y1="74" x2="370" y2="318"/>
+  <line class="grid" x1="510" y1="74" x2="510" y2="318"/>
+  <line class="grid" x1="650" y1="74" x2="650" y2="318"/>
+  <line class="grid" x1="790" y1="74" x2="790" y2="318"/>
+  <line class="grid" x1="930" y1="74" x2="930" y2="318"/>
+  <line class="axis" x1="230" y1="74" x2="230" y2="318"/>
+  <text class="l" x="230" y="336" text-anchor="middle">0</text>
+  <text class="l" x="370" y="336" text-anchor="middle">1000</text>
+  <text class="l" x="510" y="336" text-anchor="middle">2000</text>
+  <text class="l" x="650" y="336" text-anchor="middle">3000</text>
+  <text class="l" x="790" y="336" text-anchor="middle">4000</text>
+  <text class="l" x="930" y="336" text-anchor="middle">5000</text>
+  <text class="l" x="580" y="354" text-anchor="middle">calls per second</text>
+
+  <!-- Row 1: carrier to switch, 3500 knee, first failing step 5000 -->
+  <text class="h" x="20" y="98">carrier → switch</text>
+  <text class="s" x="20" y="116">knee, loss-free</text>
+  <rect class="ours" x="230" y="84" width="490" height="28" rx="4"/>
+  <text class="v" x="710" y="103" text-anchor="end">3500</text>
+  <circle class="fail" cx="930" cy="98" r="6"/>
+  <text class="l ann" x="238" y="132">CPU 190 of 400 at the knee · kernel receive drops from 3750 · 0.101% failed at 5000</text>
+
+  <!-- Row 2: switch to carrier, 3250 knee, first failing step 3500 -->
+  <text class="h" x="20" y="178">switch → carrier</text>
+  <text class="s" x="20" y="196">knee</text>
+  <rect class="ours" x="230" y="164" width="455" height="28" rx="4"/>
+  <text class="v" x="675" y="183" text-anchor="end">3250</text>
+  <circle class="fail" cx="720" cy="178" r="6"/>
+  <text class="l ann" x="238" y="212">CPU 192 of 400 at the knee · 0.204% failed at 3500 (carrier-leg timeouts)</text>
+
+  <!-- Row 3: client to switch, 2250 lower bound, first failing step 2500 -->
+  <text class="h" x="20" y="258">client → switch</text>
+  <text class="s" x="20" y="276">lower bound</text>
+  <rect class="bound" x="230" y="244" width="315" height="28" rx="4"/>
+  <text class="v" x="535" y="263" text-anchor="end">2250+</text>
+  <circle class="fail" cx="580" cy="258" r="6"/>
+  <text class="l ann" x="238" y="292">CPU 132 of 400 at the knee · 0.248% failed at 2500, all rejected with 503 early_cap (64 per source IP, one generator IP)</text>
+
+  <!-- Legend -->
+  <rect class="ours" x="20" y="378" width="28" height="14" rx="3"/>
+  <text class="s" x="56" y="390">knee: the last step that passed</text>
+  <rect class="bound" x="270" y="378" width="28" height="14" rx="3"/>
+  <text class="s" x="306" y="390">lower bound: the rig ended the ladder</text>
+  <circle class="fail" cx="562" cy="385" r="6"/>
+  <text class="s" x="576" y="390">first failing step</text>
+  <text class="l" x="20" y="416">Pass line: under 0.1% failed calls, zero kernel receive-buffer drops, FreeSBC CPU under 320 of 400 (100 = one vCPU).</text>
+</svg>
