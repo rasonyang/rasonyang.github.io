@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-labelledby="title desc">
+  <title id="title">The three-host load-test rig</title>
+  <desc id="desc">A load generator (ecs.c8a.2xlarge, AMD EPYC 9T24, 8 vCPU, SIPp 3.6.1 and webrtcload) on the public-side subnet sends SIP over UDP and G.711 RTP to FreeSBC v0.5.0 (ecs.c9i.xlarge, Xeon 6982P-C, 4 vCPU as 2 cores with hyper-threading, 7.4 GiB, Go 1.27.2, sipgo v1.6.0, GOMEMLIMIT 6 GiB), which relays both signaling and media to a switch on the private-side subnet (ecs.c9i.2xlarge, Xeon 6982P-C, 8 vCPU, a SIPp UAS that answers at once and echoes RTP, or FreeSWITCH 1.10.0). Every figure must pass under 0.1 percent failed calls, FreeSBC CPU under 320 of 400, RTP sent over received at least 0.999 with zero kernel receive-buffer drops, and the generator and switch each under 90 percent of a core.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#57606a"/>
+    </marker>
+    <style>
+      .bg { fill: #ffffff; }
+      .ours { fill: #ddf4ff; stroke: #0969da; stroke-width: 1.5; }
+      .other { fill: #f6f8fa; stroke: #8c959f; stroke-width: 1.2; }
+      .group { fill: none; stroke: #8c959f; stroke-width: 1.2; stroke-dasharray: 5 4; }
+      .link { fill: none; stroke: #57606a; stroke-width: 1.5; }
+      .h { font-size: 15px; font-weight: 600; fill: #1f2328; }
+      .s { font-size: 12px; fill: #424a53; }
+      .l { font-size: 11.5px; fill: #57606a; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1000" height="400" rx="12"/>
+
+  <!-- Subnets -->
+  <rect class="group" x="10" y="36" width="490" height="220" rx="10"/>
+  <text class="l" x="24" y="54">public-side subnet</text>
+  <rect class="group" x="500" y="36" width="490" height="220" rx="10"/>
+  <text class="l" x="976" y="54" text-anchor="end">private-side subnet</text>
+
+  <!-- Load generator -->
+  <rect class="other" x="24" y="70" width="252" height="168" rx="8"/>
+  <text class="h" x="150" y="98" text-anchor="middle">Load generator</text>
+  <text class="s" x="150" y="124" text-anchor="middle">ecs.c8a.2xlarge · AMD EPYC 9T24</text>
+  <text class="s" x="150" y="142" text-anchor="middle">8 vCPU</text>
+  <text class="s" x="150" y="170" text-anchor="middle">SIPp 3.6.1 UAC</text>
+  <text class="s" x="150" y="188" text-anchor="middle">calls and REGISTERs</text>
+  <text class="s" x="150" y="212" text-anchor="middle">webrtcload: DTLS-SRTP over ws/wss</text>
+
+  <!-- FreeSBC -->
+  <rect class="ours" x="374" y="70" width="252" height="168" rx="8"/>
+  <text class="h" x="500" y="98" text-anchor="middle">FreeSBC v0.5.0</text>
+  <text class="s" x="500" y="124" text-anchor="middle">ecs.c9i.xlarge · Xeon 6982P-C</text>
+  <text class="s" x="500" y="142" text-anchor="middle">4 vCPU (2 cores + HT) · 7.4 GiB</text>
+  <text class="s" x="500" y="170" text-anchor="middle">Go 1.27.2 · sipgo v1.6.0</text>
+  <text class="s" x="500" y="188" text-anchor="middle">GOMEMLIMIT=6GiB</text>
+  <text class="s" x="500" y="212" text-anchor="middle">anchors RTP on both legs</text>
+
+  <!-- Switch -->
+  <rect class="other" x="724" y="70" width="252" height="168" rx="8"/>
+  <text class="h" x="850" y="98" text-anchor="middle">Switch</text>
+  <text class="s" x="850" y="124" text-anchor="middle">ecs.c9i.2xlarge · Xeon 6982P-C</text>
+  <text class="s" x="850" y="142" text-anchor="middle">8 vCPU</text>
+  <text class="s" x="850" y="170" text-anchor="middle">SIPp UAS: answers at once,</text>
+  <text class="s" x="850" y="188" text-anchor="middle">echoes RTP</text>
+  <text class="s" x="850" y="212" text-anchor="middle">or FreeSWITCH 1.10.0</text>
+
+  <!-- Links -->
+  <line class="link" x1="280" y1="154" x2="370" y2="154" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <text class="l" x="325" y="142" text-anchor="middle">SIP/UDP</text>
+  <text class="l" x="325" y="172" text-anchor="middle">G.711 RTP</text>
+  <line class="link" x1="630" y1="154" x2="720" y2="154" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <text class="l" x="675" y="142" text-anchor="middle">SIP/UDP</text>
+  <text class="l" x="675" y="172" text-anchor="middle">G.711 RTP</text>
+
+  <!-- Notes -->
+  <text class="s" x="24" y="286">Media: G.711 (PCMU), 20 ms, both directions. Every RTP packet enters and leaves FreeSBC on each leg.</text>
+  <text class="s" x="24" y="306">All three hosts: Ubuntu 24.04, kernel 6.8, real NICs.</text>
+
+  <text class="h" x="24" y="342">Pass line for every figure</text>
+  <text class="s" x="24" y="364">under 0.1% failed calls · FreeSBC CPU under 320 of 400 (100 = one vCPU) · RTP sent/received at least 0.999</text>
+  <text class="s" x="24" y="384">zero kernel receive-buffer drops · generator and switch each under 90% of a core</text>
+</svg>
