@@ -4,7 +4,7 @@ slug: "{{ .File.ContentBaseName }}"
 date: {{ .Date }}
 draft: true
 description: ""   # one sentence; used for search results and social cards
-projects: []      # aicc | freesbc | cascade-realtime-gateway | web-sip-phone
+projects: []      # aicc | freesbc | cascade-realtime-gateway | mlx-realtime | web-sip-phone
 tags: []          # sip, freeswitch, realtime, rtp, testing, ...
 ---
 
