@@ -2,7 +2,6 @@
 title: "A Realtime Voice Bot on One Mac, and Why the Third Call Breaks It"
 slug: "realtime-voice-on-one-mac"
 date: 2026-10-26T15:03:35+08:00
-draft: true
 description: "mlx-realtime runs VAD, turn detection, ASR, an LLM and TTS on one M3 Max behind the OpenAI Realtime protocol. One call answers in 1.4 s and meets every AICC deadline with margin; three calls do not, because the TTS speaks one stream at a time."
 projects: [mlx-realtime, aicc]
 tags: [realtime, performance]
