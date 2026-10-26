@@ -12,7 +12,7 @@ defaultSocialImage = "img/default-feature.jpg"
 
 # Read by layouts/partials/home/hero.html
 homeIntro = """
-**Web SIP Phone / PSTN → FreeSBC → FreeSWITCH + AICC → realtime model, or Cascade Realtime Gateway → ASR → LLM → TTS**
+**Web SIP Phone / PSTN → FreeSBC → FreeSWITCH + AICC → realtime model, or Cascade Realtime Gateway or mlx-realtime → ASR → LLM → TTS**
 
 Posts cover the parts that were hard, surprising, or that I got wrong the first time.
 """

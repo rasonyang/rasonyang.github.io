@@ -3,7 +3,8 @@
 Source for [rasonyang.dev](https://rasonyang.dev): engineering notes on
 [AICC](https://github.com/rasonyang/ai-native-callcenter),
 [FreeSBC](https://github.com/rasonyang/freesbc),
-[Cascade Realtime Gateway](https://github.com/rasonyang/cascade-realtime-gateway) and
+[Cascade Realtime Gateway](https://github.com/rasonyang/cascade-realtime-gateway),
+[mlx-realtime](https://github.com/rasonyang/mlx-realtime) and
 [Web SIP Phone](https://github.com/rasonyang/web-sip-phone).
 
 Built with [Hugo](https://gohugo.io) (pinned in `.github/workflows/pages.yml`)
@@ -23,7 +24,7 @@ One post per pull request. Remove `draft: true` and merge to publish.
 
 - `projects:` in front matter puts the post on a project page
   (`/projects/<slug>/`, with its own RSS feed). Values: `aicc`, `freesbc`,
-  `cascade-realtime-gateway`, `web-sip-phone`.
+  `cascade-realtime-gateway`, `mlx-realtime`, `web-sip-phone`.
 - Optional `featured.jpg` (1200x630) in the post's bundle becomes its card and
   social image; without it the site default `assets/img/default-feature.jpg`
   is used.

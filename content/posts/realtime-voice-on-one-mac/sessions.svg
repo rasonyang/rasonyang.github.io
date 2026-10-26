@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 340" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-labelledby="title desc">
+  <title id="title">AICC's first-audio window with one, two and three sessions</title>
+  <desc id="desc">Horizontal bars of the time from response.created to the first audio delta at the client, every response of three runs per row, against AICC's 3 second limit. One session: P95 0.94 to 0.97 s across the three runs, maximum 1.1 s; TTS first chunk P95 79 to 80 ms; 0 backend_busy failures. Two sessions: P95 1.27 to 1.96 s, maximum 2.65 s; TTS first chunk P95 645 to 1036 ms; 1 backend_busy failure. Three sessions: P95 1.94 to 2.23 s, maximum 3.39 s, past the limit; TTS first chunk P95 1135 to 1420 ms; 7 backend_busy failures, 1.8 percent of responses.</desc>
+  <defs>
+    <style>
+      .bg { fill: #ffffff; }
+      .p95 { fill: #ddf4ff; stroke: #0969da; stroke-width: 1.5; }
+      .range { fill: #ffffff; stroke: #0969da; stroke-width: 1.5; stroke-dasharray: 5 4; }
+      .whisk { stroke: #57606a; stroke-width: 1.5; }
+      .max { fill: #ffffff; stroke: #57606a; stroke-width: 2; }
+      .over { fill: #cf222e; stroke: #cf222e; stroke-width: 2; }
+      .limit { stroke: #cf222e; stroke-width: 1.5; stroke-dasharray: 6 4; }
+      .grid { stroke: #d0d7de; stroke-width: 1; }
+      .axis { stroke: #8c959f; stroke-width: 1.2; }
+      .h { font-size: 15px; font-weight: 600; fill: #1f2328; }
+      .v { font-size: 13px; font-weight: 600; fill: #1f2328; }
+      .s { font-size: 12px; fill: #424a53; }
+      .l { font-size: 11.5px; fill: #57606a; }
+      .red { font-size: 12px; font-weight: 600; fill: #cf222e; }
+      .ann { paint-order: stroke; stroke: #ffffff; stroke-width: 4px; stroke-linejoin: round; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1000" height="340" rx="12"/>
+
+  <text class="h" x="20" y="34">AICC's first-audio window, one to three sessions</text>
+  <text class="s" x="20" y="54">response.created → first audio delta, at the client. Every response of three runs per row. AICC abandons the turn at 3 s.</text>
+
+  <!-- Column headers -->
+  <text class="l" x="770" y="88">TTS first chunk P95</text>
+  <text class="l" x="950" y="88" text-anchor="middle">backend_busy</text>
+
+  <!-- Scale: x = 150 + ms / 6 -->
+  <line class="grid" x1="316.7" y1="96" x2="316.7" y2="270"/>
+  <line class="grid" x1="483.3" y1="96" x2="483.3" y2="270"/>
+  <line class="limit" x1="650" y1="80" x2="650" y2="270"/>
+  <text class="red ann" x="656" y="92">3 s limit</text>
+
+  <!-- 1 session: P95 939-971, max 1105 -->
+  <text class="v" x="20" y="134">1 session</text>
+  <rect class="p95" x="150" y="114" width="156.5" height="28"/>
+  <rect class="range" x="306.5" y="114" width="5.3" height="28"/>
+  <line class="whisk" x1="311.8" y1="128" x2="334.2" y2="128"/>
+  <circle class="max" cx="334.2" cy="128" r="5"/>
+  <text class="s ann" x="160" y="133">P95 0.94–0.97 s</text>
+  <text class="s ann" x="344" y="133">max 1.1 s</text>
+  <text class="v" x="770" y="133">79–80 ms</text>
+  <text class="v" x="950" y="133" text-anchor="middle">0</text>
+
+  <!-- 2 sessions: P95 1274-1955, max 2647 -->
+  <text class="v" x="20" y="194">2 sessions</text>
+  <rect class="p95" x="150" y="174" width="212.3" height="28"/>
+  <rect class="range" x="362.3" y="174" width="113.5" height="28"/>
+  <line class="whisk" x1="475.8" y1="188" x2="591.2" y2="188"/>
+  <circle class="max" cx="591.2" cy="188" r="5"/>
+  <text class="s ann" x="160" y="193">P95 1.27–1.96 s</text>
+  <text class="s ann" x="585" y="168" text-anchor="end">max 2.65 s</text>
+  <text class="v" x="770" y="193">645–1036 ms</text>
+  <text class="v" x="950" y="193" text-anchor="middle">1</text>
+
+  <!-- 3 sessions: P95 1944-2227, max 3394 -->
+  <text class="v" x="20" y="254">3 sessions</text>
+  <rect class="p95" x="150" y="234" width="324" height="28"/>
+  <rect class="range" x="474" y="234" width="47.2" height="28"/>
+  <line class="whisk" x1="521.2" y1="248" x2="715.7" y2="248"/>
+  <circle class="over" cx="715.7" cy="248" r="5"/>
+  <text class="s ann" x="160" y="253">P95 1.94–2.23 s</text>
+  <text class="red ann" x="680" y="232">max 3.39 s</text>
+  <text class="v" x="770" y="253">1135–1420 ms</text>
+  <text class="v" x="950" y="253" text-anchor="middle">7</text>
+
+  <!-- Axis -->
+  <line class="axis" x1="150" y1="276" x2="750" y2="276"/>
+  <line class="axis" x1="150" y1="276" x2="150" y2="282"/>
+  <line class="axis" x1="316.7" y1="276" x2="316.7" y2="282"/>
+  <line class="axis" x1="483.3" y1="276" x2="483.3" y2="282"/>
+  <line class="axis" x1="650" y1="276" x2="650" y2="282"/>
+  <text class="l" x="150" y="296" text-anchor="middle">0 s</text>
+  <text class="l" x="316.7" y="296" text-anchor="middle">1 s</text>
+  <text class="l" x="483.3" y="296" text-anchor="middle">2 s</text>
+  <text class="l" x="650" y="296" text-anchor="middle">3 s</text>
+
+  <!-- Legend -->
+  <rect class="p95" x="150" y="312" width="18" height="12"/>
+  <text class="l" x="174" y="322">lowest P95 of the three runs</text>
+  <rect class="range" x="350" y="312" width="18" height="12"/>
+  <text class="l" x="374" y="322">up to the highest P95</text>
+  <circle class="max" cx="526" cy="318" r="5"/>
+  <text class="l" x="538" y="322">maximum</text>
+</svg>
